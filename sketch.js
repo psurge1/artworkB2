@@ -1,6 +1,10 @@
 var wFrame, hFrame, sliderElement, imgSelector, selectedImg;
 var imgChoices = [];
 var selection = 0;
+var normalColor = "#3722a8";
+var hoverColor = "#392182";
+var clickedColor = "#231450";
+var textColor = "#000000";
 
 function preload() {
   imgChoices.push(loadJSON('imgs/img1.json'));
@@ -12,16 +16,21 @@ function setup() {
   hFrame = windowHeight;
   createCanvas(wFrame, hFrame);
 
-  text("Patten: ", 50, 90, 100, 100);
   sliderElement = createSlider(1, 9, 1, 1);
+  sliderElement.addClass("patternSlider");
   sliderElement.position(50, 100);
 
   imgSelector = createButton("Next Image");
+  imgSelector.style("color: "+textColor);
   imgSelector.style("border: 0");
-  imgSelector.style("radius: 100px");
+  imgSelector.style("border-radius: 3px");
+  imgSelector.style("background-color: "+normalColor);
   imgSelector.size(100, 20);
   imgSelector.position(50, 50);
-  imgSelector.mouseReleased(changeImg);
+  imgSelector.mouseOver(changeImgF);
+  imgSelector.mouseOut(changeImgB);
+  imgSelector.mousePressed(changeImg);
+  imgSelector.mouseReleased(changeImgF);
   selectedImg = imgChoices[0];
 }
 
@@ -47,6 +56,17 @@ function draw() {
 
 function changeImg()
 {
+  imgSelector.style("background-color: "+clickedColor);
   selection++;
   selectedImg = imgChoices[selection%imgChoices.length];
+}
+
+function changeImgF()
+{
+  imgSelector.style("background-color: "+hoverColor);
+}
+
+function changeImgB()
+{
+  imgSelector.style("background-color: "+normalColor);
 }

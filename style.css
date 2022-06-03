@@ -6,3 +6,27 @@ html, body {
 canvas {
   display: block;
 }
+
+.patternSlider {
+  -webkit-appearance: none;
+  width: 100px;
+  height: 15px;
+  background: #392182;
+  outline: none;
+}
+
+.patternSlider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 2px;
+  background: #3722a8;
+}
+
+.patternSlider::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 2px;
+  background: #3722a8;
+}
