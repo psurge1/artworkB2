@@ -12,6 +12,7 @@ function setup() {
   hFrame = windowHeight;
   createCanvas(wFrame, hFrame);
 
+  text("Patten: ", 50, 90, 100, 100);
   sliderElement = createSlider(1, 9, 1, 1);
   sliderElement.position(50, 100);
 
@@ -46,6 +47,6 @@ function draw() {
 
 function changeImg()
 {
-  selectedImg = imgChoices[selection%imgChoices.length];
   selection++;
+  selectedImg = imgChoices[selection%imgChoices.length];
 }
